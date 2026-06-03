@@ -454,7 +454,7 @@ function EarlyAccessForm() {
     return (
       <div className="demo-card reveal demo-form-success" role="status">
         <Check size={32} />
-        <h3>Thank you for submitting</h3>
+        <h3>Thank you for contacting</h3>
         <p>We have received your details and will connect with you shortly.</p>
       </div>
     );
