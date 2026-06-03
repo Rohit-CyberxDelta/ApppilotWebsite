@@ -3,7 +3,8 @@ import { createRoot } from "react-dom/client";
 import {
   Activity, AlertTriangle, ArrowRight, BarChart3, Bot, Check, ChevronRight,
   CircleDollarSign, Clock, Database, FileKey2, Gauge, KeyRound, Lock, Play,
-  RefreshCw, Search, Shield, ShieldCheck, Sparkles, Upload, Workflow, X, Zap
+  RefreshCw, Search, Shield, ShieldCheck, Sparkles, Upload, Users, Building2, Linkedin,
+  Workflow, X, Zap
 } from "lucide-react";
 import "./styles.css";
 import logoIconUrl from "./assets/apppilot-logo-icon.png";
@@ -619,6 +620,71 @@ function AnimatedChatDemo() {
   );
 }
 
+// --- About Us Section ---
+const teamMembers = [
+  { name: "Abhishek Pandey", role: "IAM Engineer", image: "/Abhishek.jfif" },
+  { name: "Prashanthi Aredla", role: "IAM Engineer", image: "/Prashanthi.jfif" },
+  { name: "Bhuvan Gaddam", role: "IAM Engineer", image: "/Bhuvan.png" },
+  { name: "Shivam Rai", role: "IAM Engineer", image: "/Shivam.jfif", objectPosition: "top" },
+  { name: "Mohit Haibatpure", role: "Software Developer", image: "/Mohit.jpeg" },
+  { name: "Rohit Patil", role: "Software Developer", image: "/Rohit.jpeg", objectPosition: "top" },
+];
+
+function AboutUsSection() {
+  return (
+    <section className="section about-section" id="about">
+      <div className="section-heading reveal">
+        <p className="eyebrow">About Us</p>
+        <h2>
+          Built by security experts,<br />
+          <span className="gradient-text">for security teams.</span>
+        </h2>
+      </div>
+
+      <div className="about-content reveal">
+        <div className="about-text-block">
+          <h3><Logo size={28} className="inline-logo" /> AppPilot</h3>
+          <p className="about-flagship-badge">Flagship Product of CyberXDelta</p>
+          <p>
+            AppPilot is the first AI-driven platform that orchestrates application onboarding across PingOne, Okta, and Microsoft Entra ID &mdash; through a single governed portal, an AI-powered assistant, and a security architecture built for enterprise scale.
+          </p>
+        </div>
+
+        <div className="about-divider"></div>
+
+        <div className="about-text-block">
+          <h3><Building2 size={24} className="inline-icon" /> CyberXDelta</h3>
+          <p className="about-tagline">Your Missing Piece in Security</p>
+          <p>
+            CyberXDelta is a Cybersecurity Training &amp; Consulting company dedicated to bridging the widening talent and knowledge gaps that enterprises face in a rapidly evolving threat landscape. Their promise is direct: <strong>Real Skills. Real Impact. Real Security.</strong>
+          </p>
+          <p className="about-motto">
+            We're not just teaching cybersecurity &mdash; we're building the next generation of cyber defenders.
+          </p>
+        </div>
+      </div>
+
+      {/* Team */}
+      <div className="about-team-heading reveal">
+        <p className="eyebrow"><Users size={16} /> The Team</p>
+        <h3>Meet the minds behind AppPilot.</h3>
+        <p>A cross-functional team of IAM engineers, cybersecurity architects, and product builders obsessed with automation.</p>
+      </div>
+      <div className="team-grid six-members">
+        {teamMembers.map((member, i) => (
+          <article className="team-card reveal" key={member.name} style={{ animationDelay: `${i * 0.1}s` }}>
+            <div className="team-image-container">
+              <img src={member.image} alt={member.name} className="team-image" loading="lazy" style={{ objectPosition: member.objectPosition || 'center' }} />
+            </div>
+            <h4>{member.name}</h4>
+            <p className="team-role">{member.role}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function App() {
   useScrollReveal();
 
@@ -849,6 +915,9 @@ function App() {
         </div>
       </section>
 
+      {/* ── About Us ── */}
+      <AboutUsSection />
+
       {/* ── System Orchestration Section (Replaces ROI) ── */}
       <section className="section orchestration-section">
         <div className="section-heading centered reveal">
@@ -886,6 +955,7 @@ function App() {
           <a href="#ai-demo">AI Demo</a>
           <a href="#ecosystem">Ecosystem</a>
           <a href="#governance">Governance</a>
+          <a href="#about">About</a>
           <a href="#demo">Demo</a>
         </nav>
         <p>Zero-touch identity orchestration & automated application onboarding.</p>
@@ -916,6 +986,7 @@ function Header() {
         <a href="#workflow">Workflow</a>
         <a href="#ai-demo">AI Demo</a>
         <a href="#governance">Governance</a>
+        <a href="#about">About</a>
         <a href="#demo">Demo</a>
       </nav>
       <a className="nav-cta" href="#demo">Get Early Access</a>
